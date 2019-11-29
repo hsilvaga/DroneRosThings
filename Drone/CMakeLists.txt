@@ -116,6 +116,21 @@ catkin_package(
 ## Build ##
 ###########
 
+add_executable(offb_node scripts/offb_node.cpp)
+add_executable(upForward scripts/upForward.cpp)
+add_executable(up2Forward3 scripts/up2Forward3.cpp)
+
+add_dependencies(offb_node upForward${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
+target_link_libraries(offb_node
+	${catkin_LIBRARIES}
+)
+target_link_libraries(upForward
+	${catkin_LIBRARIES}
+)
+target_link_libraries(up2Forward3
+	${catkin_LIBRARIES}
+)
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
