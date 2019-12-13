@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dddb3cb4-aabc-45e7-92ee-ab1cf06070f0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Drone/scripts/MavrosSetUP.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Drone/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Drone/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drone/package.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Drone/package.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drone/scripts/upForward.py" beforeDir="false" afterPath="$PROJECT_DIR$/Drone/scripts/upForward.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drone/scripts/setup.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drone/scripts/setup.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drone/scripts/up2Forward3.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drone/scripts/up2Forward3.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +26,7 @@
   <component name="ProjectId" id="1TU79joYyjrLQWU1yUwmisnzOeE" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/Pycharm/ParticleFilter1D/particle_filter.py" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunDashboard">

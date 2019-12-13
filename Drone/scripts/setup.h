@@ -1,3 +1,9 @@
+/*
+ * @description This setupc class makes it easier to
+ * 				set the mode to offboard and arm the drone
+ * 				to make the drone ready for code (Playing).
+ */
+
 #ifndef __SETUP_INCLUDED__
 #define __SETUP_INCLUDED__
 
@@ -6,11 +12,14 @@
 #include <mavros_msgs/CommandBool.h>
 #include <mavros_msgs/State.h>
 #include <mavros_msgs/SetMode.h>
+#include <mavros_msgs/PositionTarget.h>
 #include <string.h>
 
 class setupc {
 public:
 	mavros_msgs::State currentState;
+	mavros_msgs::PositionTarget sendPose;
+
 
 	ros::Subscriber stateSub;
 	ros::Publisher posPub;
@@ -22,30 +31,42 @@ public:
 		currentState = *msg; //stores all state data in currentState
 	}
 
+	/*
+	 * @description variable setups
+	 * 		subscriber / publisher / serviceclients setup
+	 */
 	void setup(int argc, char **argv) {
 		ros::init(argc,argv, "Drone_Setup");
 		ros::NodeHandle nh;
 		ros::Rate rate(30);
 
 		stateSub = nh.subscribe<mavros_msgs::State>("/mavros/state", 10, &setupc::stateCall,this);
-		posPub = nh.advertise<geometry_msgs::PoseStamped>("/mavros/setpoint_position/local", 10);
+		posPub = nh.advertise<mavros_msgs::PositionTarget>("/mavros/setpoint_raw/local", 100);
 		armSrv = nh.serviceClient<mavros_msgs::CommandBool>("/mavros/cmd/arming");
 		modeSrv = nh.serviceClient<mavros_msgs::SetMode>("mavros/set_mode");
 
+
+		sendPose.position.x = 0;
+		sendPose.position.y = 0;
+		sendPose.position.z = 3;
 
 
 
 	}
 
 
-	void setMode(){ //const std::string& mode
+	/*
+	 * This sets the mode of the drone
+	 */
+	void setMode(){
 		ros::Rate rate(30);
 		bool exit = true;
 
-		geometry_msgs::PoseStamped sendPose;
-		sendPose.pose.position.x = 0;
-		sendPose.pose.position.y = 0;
-		sendPose.pose.position.z = 2;
+		while(ros::ok() && !currentState.connected){
+				ROS_INFO("Curentastate connected.");
+		        ros::spinOnce();
+		        rate.sleep();
+		    }
 
 		for(int i = 0; ros::ok() && i < 100; i++) {
 				posPub.publish(sendPose);
@@ -67,12 +88,15 @@ public:
 				}
 				lastRequest = ros::Time::now();
 			}
-			ROS_INFO("fuck!?!?!??!");
-			//ros::spinOnce();
+			ros::spinOnce();
 			rate.sleep();
 		}
 	}
 
+	/*
+	 * This arms the drone's motors
+	 * @param arm bool
+	 */
 	void setArm(bool arm) {
 		ros::Rate rate(30);
 
@@ -90,17 +114,11 @@ public:
 				}
 				lastRequest = ros::Time::now();
 			}
-			ROS_INFO("WHY!?!?!?!?");
 			ros::spinOnce();
 			rate.sleep();
 		}
 
-
 	}
 
-//	void setOff&Arm() {
-
-
-	//}
 };
 #endif

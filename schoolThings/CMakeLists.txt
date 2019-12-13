@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(Drone)
+project(schoolThings)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -8,12 +8,11 @@ project(Drone)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  geometry_msgs
-  mavros_msgs
+  message_generation
+  message_runtime
   nav_msgs
   rospy
   std_msgs
-  tf
 )
 
 ## System dependencies are found with CMake's conventions
@@ -73,7 +72,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   geometry_msgs#   mavros_msgs#   nav_msgs#   std_msgs
+#   nav_msgs#   std_msgs
 # )
 
 ################################################
@@ -107,8 +106,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES Drone
-#  CATKIN_DEPENDS geometry_msgs mavros_msgs nav_msgs rospy std_msgs tf
+#  LIBRARIES schoolThings
+#  CATKIN_DEPENDS message_generation message_runtime nav_msgs rospy std_msgs
 #  DEPENDS system_lib
 )
 
@@ -116,25 +115,6 @@ catkin_package(
 ## Build ##
 ###########
 
-add_executable(offb_node scripts/offb_node.cpp)
-add_executable(upForward scripts/upForward.cpp)
-add_executable(up2Forward3 scripts/up2Forward3.cpp)
-add_executable(subscriber scripts/subscriber.cpp)
-
-add_dependencies(offb_node upForward${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
-target_link_libraries(offb_node
-	${catkin_LIBRARIES}
-)
-target_link_libraries(upForward
-	${catkin_LIBRARIES}
-)
-target_link_libraries(up2Forward3
-	${catkin_LIBRARIES}
-)
-target_link_libraries(subscriber
-	${catkin_LIBRARIES}
-)
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
@@ -144,7 +124,7 @@ include_directories(
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/Drone.cpp
+#   src/${PROJECT_NAME}/schoolThings.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -155,7 +135,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/Drone_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/schoolThings_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -219,7 +199,7 @@ include_directories(
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_Drone.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_schoolThings.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
