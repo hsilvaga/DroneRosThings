@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="dddb3cb4-aabc-45e7-92ee-ab1cf06070f0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drone/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Drone/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drone/scripts/setup.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drone/scripts/setup.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drone/scripts/up2Forward3.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drone/scripts/up2Forward3.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
