@@ -56,11 +56,12 @@ int main(int argc, char **argv) {
 	posePub1 = h.advertise<geometry_msgs::PoseStamped>
 				("/mavros/setpoint_position/local",100);
 
-	Set.setup(argc, argv);
-	//Set.setMode();
-	Set.setArm(true);
+
 
 	while(ros::ok() && breakOut) {
+		Set.setup(argc, argv);
+		Set.setMode();
+		Set.setArm(true);
 
 		ros::Subscriber odomSub = h.subscribe<nav_msgs::Odometry>
 										("/mavros/local_position/odom", 100, odomCall);
