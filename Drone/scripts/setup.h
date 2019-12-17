@@ -88,6 +88,8 @@ public:
 				}
 				lastRequest = ros::Time::now();
 			}
+
+			posPub.publish(sendPose);
 			ros::spinOnce();
 			rate.sleep();
 		}
@@ -114,6 +116,9 @@ public:
 				}
 				lastRequest = ros::Time::now();
 			}
+
+			posPub.publish(sendPose);
+
 			ros::spinOnce();
 			rate.sleep();
 		}
