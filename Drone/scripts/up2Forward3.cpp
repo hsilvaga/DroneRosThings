@@ -57,7 +57,7 @@ int main(int argc, char **argv) {
 				("/mavros/setpoint_position/local",100);
 
 	Set.setup(argc, argv);
-	Set.setMode();
+	//Set.setMode();
 	Set.setArm(true);
 
 	while(ros::ok() && breakOut) {
