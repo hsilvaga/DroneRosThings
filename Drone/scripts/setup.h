@@ -18,7 +18,7 @@
 class setupc {
 public:
 	mavros_msgs::State currentState;
-	mavros_msgs::PositionTarget sendPose;
+	geometry_msgs::PoseStamped sendPose;
 
 
 	ros::Subscriber stateSub;
@@ -41,14 +41,14 @@ public:
 		ros::Rate rate(30);
 
 		stateSub = nh.subscribe<mavros_msgs::State>("/mavros/state", 10, &setupc::stateCall,this);
-		posPub = nh.advertise<mavros_msgs::PositionTarget>("/mavros/setpoint_raw/local", 100);
+		posPub = nh.advertise<geometry_msgs::PoseStamped>("/mavros/setpoint_position/local", 100);
 		armSrv = nh.serviceClient<mavros_msgs::CommandBool>("/mavros/cmd/arming");
 		modeSrv = nh.serviceClient<mavros_msgs::SetMode>("mavros/set_mode");
 
 
-		sendPose.position.x = 0;
-		sendPose.position.y = 0;
-		sendPose.position.z = 3;
+		sendPose.pose.position.x = 0;
+		sendPose.pose.position.y = 0;
+		sendPose.pose.position.z = 3;
 
 
 
