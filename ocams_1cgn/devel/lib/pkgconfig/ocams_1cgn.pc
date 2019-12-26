@@ -1,0 +1,8 @@
+prefix=/home/jarnbjorn/catkin_ws/src/ocams_1cgn/devel
+
+Name: ocams_1cgn
+Description: Description of ocams_1cgn
+Version: 0.0.2
+Cflags: -I/home/jarnbjorn/catkin_ws/src/ocams_1cgn/devel/include -I/home/jarnbjorn/catkin_ws/src/ocams_1cgn/include
+Libs: -L/home/jarnbjorn/catkin_ws/src/ocams_1cgn/devel/lib 
+Requires: roscpp std_msgs image_transport image_geometry camera_info_manager sensor_msgs tf dynamic_reconfigure
