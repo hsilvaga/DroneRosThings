@@ -61,8 +61,9 @@ int main(int argc, char **argv) {
 
 	while(ros::ok() && breakOut) {
 		Set.setup(argc, argv);
-		Set.setMode();
 		Set.setArm(true);
+		Set.setMode();
+
 
 		move(0.0,0.0,0.1);
 
