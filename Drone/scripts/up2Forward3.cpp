@@ -64,7 +64,7 @@ int main(int argc, char **argv) {
 		Set.setMode();
 		Set.setArm(true);
 
-
+		move(0.0,0.0,0.1);
 
 		//Move up 5 meters
 		while(poseZ <= 5.0 && ros::ok()) {
