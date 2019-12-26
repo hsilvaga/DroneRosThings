@@ -53,6 +53,9 @@ int main(int argc, char **argv) {
 	ros::Rate rate(30);
 	bool breakOut = true;
 
+	mavros_msgs::SetMode setMode;
+	setMode.request.custom_mode = "OFFBOARD";
+
 	posePub1 = h.advertise<geometry_msgs::PoseStamped>
 				("/mavros/setpoint_position/local",100);
 
@@ -69,7 +72,7 @@ int main(int argc, char **argv) {
 
 		//Move up 5 meters
 		while(poseZ <= 5.0 && ros::ok()) {
-			setMode();
+			Set.modeSrv.call(setMode);
 			move(0.0,0.0,5.1);
 
 			ROS_INFO("Moving. Z = %f", poseZ);
