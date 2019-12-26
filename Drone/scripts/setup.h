@@ -122,7 +122,7 @@ public:
 			ros::spinOnce();
 			rate.sleep();
 		}
-
+		posPub.publish(sendPose);
 	}
 
 };
