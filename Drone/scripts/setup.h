@@ -88,7 +88,9 @@ public:
 				}
 				lastRequest = ros::Time::now();
 			}
-
+			else if(currentState.mode == "OFFBOARD"){
+				exit = false;
+			}
 			posPub.publish(sendPose);
 			ros::spinOnce();
 			rate.sleep();
@@ -116,7 +118,9 @@ public:
 				}
 				lastRequest = ros::Time::now();
 			}
-
+			else if(currentState.armed){
+				exit = false;
+			}
 			posPub.publish(sendPose);
 
 			ros::spinOnce();
