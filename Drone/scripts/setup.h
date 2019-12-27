@@ -114,11 +114,13 @@ public:
 			if(!currentState.armed && (ros::Time::now() - lastRequest) > ros::Duration(5.0)) {
 				if(armSrv.call(setArm) && setArm.response.success) {
 					ROS_INFO("Drone Armed");
+					posPub.publish(sendPose);
 					exit = false;
 				}
 				lastRequest = ros::Time::now();
 			}
 			else if(currentState.armed){
+				posPub.publish(sendPose);
 				exit = false;
 			}
 			posPub.publish(sendPose);
