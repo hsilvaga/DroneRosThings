@@ -1,8 +1,4 @@
 Drone (Ontarc) Information:
-
-
-
-
   Hardware Specs:
     Onboard Computer: Jetson Nano (Ubuntu 18.04 / Armf)
     Flight Computer: PX4 (v1.10.0)
