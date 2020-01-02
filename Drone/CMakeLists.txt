@@ -117,7 +117,6 @@ catkin_package(
 ###########
 
 add_executable(offb_node scripts/offb_node.cpp)
-add_executable(upForward scripts/upForward.cpp)
 add_executable(up2Forward3 scripts/up2Forward3.cpp)
 add_executable(subscriber scripts/subscriber.cpp)
 add_executable(transformationTest scripts/transformationTest.cpp)
@@ -128,9 +127,6 @@ target_link_libraries(transformationTest
 	${catkin_LIBRARIES}
 )
 target_link_libraries(offb_node
-	${catkin_LIBRARIES}
-)
-target_link_libraries(upForward
 	${catkin_LIBRARIES}
 )
 target_link_libraries(up2Forward3
