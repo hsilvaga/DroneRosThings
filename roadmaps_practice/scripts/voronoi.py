@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from msg_package.msg import MyMsg
+#from msg_package.msg import MyMsg
 import rospy
 from nav_msgs.msg import OccupancyGrid
 from roadmaps_practice.msg import GridInfo, ObPixels

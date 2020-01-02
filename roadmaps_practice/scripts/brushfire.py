@@ -137,14 +137,5 @@ def callBack(grid):
 
 
 
-
-
-
-
-
-
-
-
-
 if __name__ == '__main__':
 	brushfire()

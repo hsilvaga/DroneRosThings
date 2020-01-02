@@ -2,7 +2,7 @@
 import rospy, math
 from sensor_msgs.msg import LaserScan
 from geometry_msgs.msg import Point
-from laser_feature_extraction.msg import LineMsg, CornerMsg, DepthFeatures
+from laser_feature_extraction.msg import LineMsg, CornerMsg
 from visualization_msgs.msg import Marker
 check = 0
 def listennerScan():
@@ -123,59 +123,61 @@ def getAllLines(pointArray):
 		number +=1
 	getCornersFromLines(list_line)
 	print "out"
-	#for i in list_line:
-	#	list_corner.append(Corner(i.p_a))
-	#	list_corner.append(Corner(i.p_b))
+	for i in list_line:
+		list_corner.append(Corner(i.p_a))
+		list_corner.append(Corner(i.p_b))
 	pub = rospy.Publisher("/visualization_marker",Marker,queue_size =10)
-	#rospy.sleep(1)
+	rospy.sleep(1)
 	pub.publish(buildRvizLineList(list_line))
 	#pub.publish(buildRvizCorners(list_corner))
-	
+
+dp = DepthFeatures()
 def getCornersFromLines(lineArray):
+	dp.lines = lineArray
 	list_corner = []
 	for l in lineArray:
 		for m in lineArray:
 			if (l != m):
-				theta = math.atan2((m.slopeLine() - l.slopeLine()),(1+m.slopeLine()*l.slopeLine()))
+				theta = math.atan((m.slopeLine() - l.slopeLine())/(1+m.slopeLine()*l.slopeLine()))
 				theta = theta*180/math.pi
-				if(theta >45 ):
+				if(theta >45 and theta <120):
 					#distance 2 endpoint of line
 					distance1 = math.sqrt((m.p_b.x-l.p_b.x)**2+(m.p_b.y-l.p_b.y)**2)
 					distance2 = math.sqrt((m.p_a.x-l.p_a.x)**2+(m.p_a.y-l.p_a.y)**2)
 					distance3 = math.sqrt((m.p_a.x-l.p_b.x)**2+(m.p_a.y-l.p_b.y)**2)
 					#list_corner.append(Corner(l.p_b))
 					#list_corner.append(Corner(m.p_b))
-					if(distance1 < 0.3):
+					if(distance1 < 0.2):
 						print distance1
 						print theta
-						point = Point()
-						point.x = (m.p_b.x + l.p_b.x)/2
-						point.y = (m.p_b.y + l.p_b.y)/2
-						list_corner.append(Corner(point,0,0,m,l))
-					if(distance2 <0.3):
+						list_corner.append(Corner(m.p_b))
+					if(distance2 <0.2):
 						print distance2
 						print theta
-						point = Point()
-						point.x = (m.p_a.x + l.p_a.x)/2
-						point.y = (m.p_a.y + l.p_a.y)/2
-						list_corner.append(Corner(point,0,0,m,l))
-					if(distance3 <0.3):
+						list_corner.append(Corner(m.p_a))
+					if(distance3 <0.2):
 						print distance3
 						print theta
-						point = Point()
-						point.x = (m.p_a.x + l.p_b.x)/2
-						point.y = (m.p_a.y + l.p_b.y)/2
-						list_corner.append(Corner(point,0,0,m,l))
+						list_corner.append(Corner(m.p_a))
+						#list_corner.append(Corner(l.p_b))
+
+					"""midPoint = Point()
+					if (minIndex == 0):
+						midPoint.x = x.p_a.x + y.p_a.x / 2
+						midPoint.y = x.p_a.y + y.p_a.y / 2
+					elif (minIndex == 1):
+						midPoint.x = x.p_a.y + y.p_b.x / 2
+						midPoint.y = x.p_a.y + y.p_b.y / 2
+					elif (minIndex == 2):
+						midPoint.x = x.p_b.y + y.p_a.x / 2
+						midPoint.y = x.p_b.y + y.p_a.y / 2
+					elif (minIndex == 3):
+						midPoint.x = x.p_b.y + y.p_b.x / 2
+						midPoint.y = x.p_b.y + y.p_b.y / 2"""
 	pub = rospy.Publisher("/visualization_marker",Marker,queue_size =10)
-	#rospy.sleep(1)
+	rospy.sleep(1)
 	#pub.publish(buildRvizLineList(list_line))
 	pub.publish(buildRvizCorners(list_corner))
-
-	pubdo = rospy.Publisher("/depth_features",DepthFeatures,queue_size =10)
-	dobj = DepthFeatures()
-	dobj.lines = lineArray
-	dobj.corners = list_corner
-	pubdo.publish(dobj)
 					
 		
 
@@ -221,20 +223,14 @@ class Corner:
 	msg = CornerMsg()
 	l_a = LineMsg()
 	l_b = LineMsg()
-	psi = 0.0
-	id = 0
-	def __init__(self,p,psi,ID, l_a,l_b):
+	def __init__(self,p,l_a=None,l_b=None):
 		self.p = p
-		self.psi = psi
 		self.l_a = l_a
 		self.l_b = l_b
-		self.id = 0
 	def MSG(self):
 		self.msg.p = p
-		self.psi = psi
 		self.msg.l_a = l_a
 		self.msg.l_b = l_b
-		self.msg.id = 0
 		return self.msg
 
 def main():
@@ -356,7 +352,6 @@ if __name__ =='__main__':
 	#getDistanceToLine(point,getLineBetweenPoint(Spoint, Epoint))
 	#getAllLines(list_point)
 	
-
 
 
 
