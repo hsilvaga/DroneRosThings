@@ -1,0 +1,6 @@
+<launch>
+	<node pkg = "node_talk" type = "node_a.py" name = "A_node" />
+	<node pkg = "node_talk" type = "node_b.py" name= "B_node" />
+	<node pkg = "node_talk" type = "node_c.py" name= "C_node" />
+
+</launch>

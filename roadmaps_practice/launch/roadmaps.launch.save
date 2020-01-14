@@ -1,0 +1,7 @@
+<launch>
+	<node pkg = "roadmaps_practice" type = "brushfire.py" name = "brushFire_node" />
+	<node pkg = "roadmaps_practice" type = "voronoi.py" name = "voronoi_node" />
+	<node pkg = "roadmaps_practice" type = "follow_path.py" name = "move_robot" />
+	<node pkg = "roadmaps_practice" type = "informed_search_voronoi.py" name = "informed_search" />
+	
+</launch>
