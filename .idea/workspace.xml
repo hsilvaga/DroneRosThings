@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dddb3cb4-aabc-45e7-92ee-ab1cf06070f0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/node_talk/scripts/node_a.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_talk/scripts/node_b.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_talk/scripts/node_c.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_talk/scripts/testing_msgs_a.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_talk/scripts/testing_msgs_b.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/src.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/src.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mavlink" beforeDir="false" afterPath="$PROJECT_DIR$/mavlink" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mavros" beforeDir="false" afterPath="$PROJECT_DIR$/mavros" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,19 +25,25 @@
   </component>
   <component name="ProjectId" id="1TU79joYyjrLQWU1yUwmisnzOeE" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$USER_HOME$/Documents/Pycharm/ParticleFilter1D/particle_filter.py" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
       </list>
     </option>
   </component>
@@ -68,5 +72,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="162" y="48" key="SettingsEditor" timestamp="1579302716168">
+      <screen x="67" y="27" width="1213" height="773" />
+    </state>
+    <state x="162" y="48" key="SettingsEditor/67.27.1213.773@67.27.1213.773" timestamp="1579302716168" />
+    <state x="329" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1579303361762">
+      <screen x="67" y="27" width="1213" height="773" />
+    </state>
+    <state x="329" y="241" key="com.intellij.ide.util.TipDialog/67.27.1213.773@67.27.1213.773" timestamp="1579303361762" />
   </component>
 </project>
