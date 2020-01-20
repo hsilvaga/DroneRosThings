@@ -9,3 +9,6 @@ Quad Information:
     Motors: DX220 Racing Edition
     ESCs: 20 amp (7.4-14.8v)
     ROS Melodic
+
+
+![IMG_20200119_213244](https://user-images.githubusercontent.com/29446797/72694704-f2a40e80-3b03-11ea-8596-5846bd3c390a.jpg)
