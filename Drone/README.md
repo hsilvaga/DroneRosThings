@@ -1,5 +1,4 @@
 Quad Information: <br />
-  Hardware Specs: <br />
     Onboard Computer: Nvidia Jetson Nano (Ubuntu 18.04 / Armf) <br />
     Flight Computer: PX4 (v1.10.0) <br />
     Tracking Camera: Intel Realsense T265 <br />
